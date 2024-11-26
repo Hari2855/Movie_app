@@ -9,6 +9,7 @@ import Cast from "../components/cast";
 import MovieList from "../components/movieList";
 import Loading from "../components/loading";
 import { fallbackMoviePoster, fetchMovieCredits, fetchMovieDetails, fetchSimilarMovies, image500 } from "../api/moviedb";
+import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 
 var { width, height } = Dimensions.get('window');
 
@@ -54,7 +55,8 @@ export default function MovieScreeen() {
 
     return (
         <ScrollView style={{ flex: 1, paddingBottom: 20, backgroundColor: '#151815' }} showsVerticalScrollIndicator={false}>
-            <View style={{ width: '100%' }}>
+         <StatusBar barStyle="light-content" translucent backgroundColor="transparent"/>
+            <View style={{ width: '100%'}}>
                 <SafeAreaView style={styles.safe}>
                     <TouchableOpacity style={{ borderRadius: 10, padding: 2, backgroundColor: '#eab308' }} onPress={() => navigation.goBack()}>
                         <ChevronLeftIcon size={28} strokeWidth={2.5} color={"white"} />
@@ -129,7 +131,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         paddingHorizontal: 10,
-        marginTop: 10
+        marginTop: hp(6)
     },
     text: {
         color: 'white',
